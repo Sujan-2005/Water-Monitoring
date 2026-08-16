@@ -384,7 +384,8 @@ const Dashboard = () => {
 
             <div className="flex items-center gap-2">
               {/* Parameter picker tabs */}
-              <div className="flex bg-navy-550 dark:bg-navy-850 p-1 rounded-xl border border-navy-150 dark:border-navy-800">
+              {/* <div className="flex bg-navy-550 dark:bg-navy-850 p-1 rounded-xl border border-navy-150 dark:border-navy-800"> */}
+              <div className="flex bg-white dark:bg-navy-850 p-1 rounded-xl border border-gray-200 dark:border-navy-800">
                 {Object.keys(PARAMETER_METRIC_CONFIG).map(key => (
                   <button
                     key={key}
@@ -392,7 +393,8 @@ const Dashboard = () => {
                     className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
                       activeTab === key
                         ? 'bg-aqua-500 text-navy-950 shadow-sm'
-                        : 'text-navy-400 dark:text-navy-500 hover:text-white'
+                        // : 'text-navy-400 dark:text-navy-500 hover:text-white'
+                       :'text-navy-700 dark:text-navy-400' 
                     }`}
                   >
                     {PARAMETER_METRIC_CONFIG[key].name}
