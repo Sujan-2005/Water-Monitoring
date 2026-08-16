@@ -56,7 +56,7 @@ const Devices = () => {
                     <th className="py-2.5 px-3 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-navy-50 dark:divide-navy-850 font-medium">
+                <tbody className="divide-y divide-navy-100 dark:divide-navy-850 font-medium">
                   {devices.map((device) => (
                     <tr
                       key={device.deviceId}

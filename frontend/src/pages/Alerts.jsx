@@ -124,7 +124,7 @@ const Alerts = () => {
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-navy-50 dark:divide-navy-850">
+            <tbody className="divide-y divide-navy-100 dark:divide-navy-850">
               {filteredAlerts.map((alert) => (
                 <tr key={alert.id} className="hover:bg-navy-50/50 dark:hover:bg-navy-850/50 transition-colors">
                   <td className="py-3.5 px-4 font-mono text-navy-450 dark:text-navy-500">

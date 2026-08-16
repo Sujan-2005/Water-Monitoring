@@ -89,9 +89,9 @@ const TopHeader = () => {
           {/* <span className="hidden sm:inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-semibold bg-navy-50 dark:bg-navy-850 text-navy-600 dark:text-navy-300 border border-navy-200/40 dark:border-navy-800/30">
             SOURCE: {getDataSourceText()}
           </span> */}
-          <span className="hidden sm:inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-semibold bg-[#0f172a] text-[#cbd5e1] border border-[#334155]">
-  SOURCE: {getDataSourceText()}
-</span>
+          <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-navy-50 dark:bg-navy-950 text-navy-600 dark:text-navy-300 border border-navy-150 dark:border-navy-800">
+            SOURCE: {getDataSourceText()}
+          </span>
         </div>
       </div>
 

@@ -231,7 +231,7 @@ const ParameterDetail = () => {
                 <th className="py-3 px-4 font-semibold text-right">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-navy-50 dark:divide-navy-850">
+            <tbody className="divide-y divide-navy-100 dark:divide-navy-850">
               {deviceLogs.slice(0, 12).map((log, index) => {
                 const val = log[paramCode];
                 const valError = val === null || val === undefined || isNaN(val);

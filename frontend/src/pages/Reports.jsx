@@ -191,7 +191,7 @@ const Reports = () => {
                   <th className="py-2.5 px-3">Maximum</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-navy-50 dark:divide-navy-850 font-medium">
+              <tbody className="divide-y divide-navy-100 dark:divide-navy-850 font-medium">
                 <tr>
                   <td className="py-3 px-3 text-left font-semibold text-navy-750 dark:text-navy-300">pH Level</td>
                   <td className="py-3 px-3 text-navy-450 dark:text-navy-500 font-mono text-[10px]">pH</td>
@@ -281,7 +281,7 @@ const Reports = () => {
                   <th className="py-2.5 px-3 text-right">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-navy-50 dark:divide-navy-850 font-medium">
+              <tbody className="divide-y divide-navy-100 dark:divide-navy-850 font-medium">
                 {criticalIncidents.slice(0, 5).map(inc => (
                   <tr key={inc.id} className="text-navy-650 dark:text-navy-300">
                     <td className="py-3 px-3 font-mono text-[10px] text-navy-400">{new Date(inc.timestamp).toLocaleString()}</td>

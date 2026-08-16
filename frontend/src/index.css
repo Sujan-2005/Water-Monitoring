@@ -6,10 +6,10 @@
 
 @layer base {
   body {
-    @apply bg-navy-50 text-navy-800 transition-colors duration-300 font-sans antialiased;
+    @apply bg-navy-50 dark:bg-navy-950 text-navy-800 dark:text-navy-100 transition-colors duration-300 font-sans antialiased;
   }
-  body.dark {
-    @apply bg-navy-950 text-navy-100;
+  select option {
+    @apply bg-white dark:bg-navy-800 text-navy-800 dark:text-navy-100;
   }
 }
 

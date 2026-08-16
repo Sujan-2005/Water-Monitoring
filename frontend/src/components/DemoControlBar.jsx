@@ -222,7 +222,7 @@ const DemoControlBar = () => {
     step="0.01"
     value={injectVal}
     onChange={(e) => setInjectVal(e.target.value)}
-    className="w-full text-xs bg-[#0f172a] border border-[#334155] rounded-lg px-2 py-1.5 text-white font-mono focus:outline-none focus:ring-1 focus:ring-cyan-500"
+    className="w-full text-xs bg-navy-950 border border-navy-750 rounded-lg px-2 py-1.5 text-white font-mono focus:outline-none focus:ring-1 focus:ring-aqua-500"
   />
 </div>
               </div>

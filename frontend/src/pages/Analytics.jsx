@@ -197,7 +197,7 @@ const Analytics = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-navy-50 dark:divide-navy-850">
+            <tbody className="divide-y divide-navy-100 dark:divide-navy-850">
               {parameters.map(pRow => (
                 <tr key={pRow} className="hover:bg-navy-50/50 dark:hover:bg-navy-850/50 transition-colors">
                   <td className="py-3 px-4 font-bold text-left text-navy-700 dark:text-navy-300">{getParamLabel(pRow)}</td>

@@ -32,6 +32,8 @@ export const AppProvider = ({ children }) => {
   const toggleTheme = () => {
     setTheme(prev => {
       const next = prev === 'dark' ? 'light' : 'dark';
+      document.documentElement.classList.remove('dark', 'light');
+      document.documentElement.classList.add(next);
       document.body.classList.remove('dark', 'light');
       document.body.classList.add(next);
       return next;
@@ -40,6 +42,8 @@ export const AppProvider = ({ children }) => {
 
   // Set initial class list theme
   useEffect(() => {
+    document.documentElement.classList.remove('dark', 'light');
+    document.documentElement.classList.add(theme);
     document.body.classList.remove('dark', 'light');
     document.body.classList.add(theme);
   }, []);
