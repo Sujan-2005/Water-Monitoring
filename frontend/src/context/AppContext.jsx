@@ -7,6 +7,10 @@ export const useApp = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const [theme, setTheme] = useState('dark'); // dark mode default for control room vibe
+  const [colorTheme, setColorThemeState] = useState(() => {
+    // Restore persisted color theme on load
+    return localStorage.getItem('colorTheme') || 'default';
+  });
   const [selectedDevice, setSelectedDevice] = useState('WQM-001');
   const [devices, setDevices] = useState([]);
   const [thresholds, setThresholds] = useState({});
@@ -47,6 +51,27 @@ export const AppProvider = ({ children }) => {
     document.body.classList.remove('dark', 'light');
     document.body.classList.add(theme);
   }, []);
+
+  // Apply persisted color theme on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('colorTheme') || 'default';
+    if (saved === 'emerald') {
+      document.documentElement.setAttribute('data-color-theme', 'emerald');
+    } else {
+      document.documentElement.removeAttribute('data-color-theme');
+    }
+  }, []);
+
+  // Action: change the color theme independently from light/dark
+  const setColorTheme = (theme) => {
+    setColorThemeState(theme);
+    localStorage.setItem('colorTheme', theme);
+    if (theme === 'emerald') {
+      document.documentElement.setAttribute('data-color-theme', 'emerald');
+    } else {
+      document.documentElement.removeAttribute('data-color-theme');
+    }
+  };
 
   // Fetch initial configuration
   const fetchInitialData = async () => {
@@ -255,6 +280,8 @@ export const AppProvider = ({ children }) => {
       value={{
         theme,
         toggleTheme,
+        colorTheme,
+        setColorTheme,
         selectedDevice,
         setSelectedDevice,
         devices,

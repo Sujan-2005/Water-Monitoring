@@ -72,3 +72,320 @@
     page-break-after: always;
   }
 }
+
+/* ============================================================
+   EMERALD ENVIRONMENTAL COLOR THEME
+   Activated by: data-color-theme="emerald" on <html>
+   Works independently of light/dark mode.
+   ============================================================ */
+
+/* --- Emerald Light Variables --- */
+[data-color-theme="emerald"] {
+  --et-bg-base:        #F5F9F7;
+  --et-bg-card:        #FFFFFF;
+  --et-bg-card-el:     #F8FCFA;
+  --et-border:         #DCE8E1;
+  --et-primary:        #059669;
+  --et-primary-hover:  #047857;
+  --et-secondary:      #65A30D;
+  --et-teal:           #0D9488;
+  --et-warning:        #D97706;
+  --et-critical:       #E11D48;
+  --et-healthy:        #059669;
+  --et-text-primary:   #17201B;
+  --et-text-secondary: #475569;
+  --et-text-muted:     #64748B;
+  --et-sidebar-bg:     #FFFFFF;
+  --et-sidebar-border: #DCE8E1;
+  --et-header-bg:      rgba(255,255,255,0.85);
+  --et-header-border:  #DCE8E1;
+  --et-input-bg:       #FFFFFF;
+  --et-input-border:   #DCE8E1;
+  --et-nav-hover-bg:   rgba(5,150,105,0.08);
+  --et-nav-active-bg:  #059669;
+  --et-scroll-thumb:   #a7c4b5;
+  --et-stat-bg:        rgba(5,150,105,0.06);
+  --et-stat-border:    rgba(5,150,105,0.15);
+}
+
+/* --- Emerald Dark Variables --- */
+[data-color-theme="emerald"].dark {
+  --et-bg-base:        #0B0F0D;
+  --et-bg-card:        #121A16;
+  --et-bg-card-el:     #17221C;
+  --et-border:         #26352E;
+  --et-primary:        #10B981;
+  --et-primary-hover:  #0ea572;
+  --et-secondary:      #84CC16;
+  --et-teal:           #14B8A6;
+  --et-warning:        #F59E0B;
+  --et-critical:       #F43F5E;
+  --et-healthy:        #34D399;
+  --et-text-primary:   #F1F5F9;
+  --et-text-secondary: #94A3B8;
+  --et-text-muted:     #64748B;
+  --et-sidebar-bg:     #121A16;
+  --et-sidebar-border: #26352E;
+  --et-header-bg:      rgba(18,26,22,0.85);
+  --et-header-border:  #26352E;
+  --et-input-bg:       #17221C;
+  --et-input-border:   #26352E;
+  --et-nav-hover-bg:   rgba(16,185,129,0.1);
+  --et-nav-active-bg:  #10B981;
+  --et-scroll-thumb:   #26352E;
+  --et-stat-bg:        rgba(16,185,129,0.06);
+  --et-stat-border:    rgba(16,185,129,0.15);
+}
+
+/* --- Global body / main area --- */
+[data-color-theme="emerald"] body {
+  background-color: var(--et-bg-base) !important;
+  color: var(--et-text-primary) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-color-theme="emerald"] .flex.h-screen {
+  background-color: var(--et-bg-base) !important;
+}
+
+[data-color-theme="emerald"] main {
+  background-color: var(--et-bg-base) !important;
+}
+
+/* --- Sidebar --- */
+[data-color-theme="emerald"] aside {
+  background-color: var(--et-sidebar-bg) !important;
+  border-right-color: var(--et-sidebar-border) !important;
+  color: var(--et-text-primary) !important;
+}
+
+[data-color-theme="emerald"] aside .border-b {
+  border-bottom-color: var(--et-sidebar-border) !important;
+}
+
+[data-color-theme="emerald"] aside .border-t {
+  border-top-color: var(--et-sidebar-border) !important;
+}
+
+/* Sidebar brand icon */
+[data-color-theme="emerald"] aside .bg-aqua-500\/20 {
+  background-color: rgba(16,185,129,0.15) !important;
+}
+[data-color-theme="emerald"] aside .text-aqua-600,
+[data-color-theme="emerald"] aside .text-aqua-400 {
+  color: var(--et-primary) !important;
+}
+
+/* Sidebar nav links - default */
+[data-color-theme="emerald"] aside nav a {
+  color: var(--et-text-secondary) !important;
+}
+[data-color-theme="emerald"] aside nav a:hover {
+  background-color: var(--et-nav-hover-bg) !important;
+  color: var(--et-text-primary) !important;
+}
+
+/* Sidebar nav links - active */
+[data-color-theme="emerald"] aside nav a.bg-aqua-600 {
+  background-color: var(--et-nav-active-bg) !important;
+  color: #FFFFFF !important;
+}
+
+/* Sidebar system diagnostics panel */
+[data-color-theme="emerald"] aside .bg-navy-50\/50,
+[data-color-theme="emerald"] aside .bg-navy-950\/80 {
+  background-color: var(--et-stat-bg) !important;
+  border-color: var(--et-stat-border) !important;
+}
+
+[data-color-theme="emerald"] aside .text-navy-500,
+[data-color-theme="emerald"] aside .text-navy-400 {
+  color: var(--et-text-secondary) !important;
+}
+[data-color-theme="emerald"] aside .text-navy-700,
+[data-color-theme="emerald"] aside .text-navy-200,
+[data-color-theme="emerald"] aside .text-navy-300 {
+  color: var(--et-text-primary) !important;
+}
+[data-color-theme="emerald"] aside .text-navy-850,
+[data-color-theme="emerald"] aside .text-white {
+  color: var(--et-text-primary) !important;
+}
+
+/* Sidebar collapse button hover */
+[data-color-theme="emerald"] aside button:hover {
+  background-color: var(--et-nav-hover-bg) !important;
+  color: var(--et-text-primary) !important;
+}
+
+/* --- Top Header --- */
+[data-color-theme="emerald"] header {
+  background-color: var(--et-header-bg) !important;
+  border-bottom-color: var(--et-header-border) !important;
+  backdrop-filter: blur(12px);
+}
+
+[data-color-theme="emerald"] header .text-navy-800,
+[data-color-theme="emerald"] header .text-white {
+  color: var(--et-text-primary) !important;
+}
+[data-color-theme="emerald"] header .text-navy-400,
+[data-color-theme="emerald"] header .text-navy-500 {
+  color: var(--et-text-secondary) !important;
+}
+
+/* Dividers in header */
+[data-color-theme="emerald"] header .bg-navy-100,
+[data-color-theme="emerald"] header .bg-navy-800 {
+  background-color: var(--et-border) !important;
+}
+
+/* Theme toggle and bell buttons */
+[data-color-theme="emerald"] header button.bg-navy-50,
+[data-color-theme="emerald"] header button.bg-navy-800\/50 {
+  background-color: var(--et-bg-card-el) !important;
+  border: 1px solid var(--et-border);
+}
+[data-color-theme="emerald"] header button.bg-navy-50:hover,
+[data-color-theme="emerald"] header button.bg-navy-800\/50:hover {
+  background-color: var(--et-nav-hover-bg) !important;
+}
+
+/* Device selector in header */
+[data-color-theme="emerald"] header select {
+  background-color: var(--et-input-bg) !important;
+  border-color: var(--et-input-border) !important;
+  color: var(--et-text-primary) !important;
+}
+[data-color-theme="emerald"] header select:focus {
+  outline-color: var(--et-primary) !important;
+  --tw-ring-color: var(--et-primary) !important;
+}
+
+/* Status badge SOURCE */
+[data-color-theme="emerald"] header .bg-navy-50.border-navy-150,
+[data-color-theme="emerald"] header .bg-navy-950.border-navy-800 {
+  background-color: var(--et-bg-card-el) !important;
+  border-color: var(--et-border) !important;
+  color: var(--et-text-secondary) !important;
+}
+
+/* Notification dropdown */
+[data-color-theme="emerald"] header .bg-white.dark\\:bg-navy-900 {
+  background-color: var(--et-bg-card) !important;
+  border-color: var(--et-border) !important;
+}
+
+/* --- Glass Cards (all pages) --- */
+[data-color-theme="emerald"] .glass-card {
+  background-color: var(--et-bg-card) !important;
+  border-color: var(--et-border) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+/* Card-level borders and dividers */
+[data-color-theme="emerald"] .border-navy-100,
+[data-color-theme="emerald"] .border-navy-150,
+[data-color-theme="emerald"] .dark\\:border-navy-800,
+[data-color-theme="emerald"] .dark\\:border-navy-850 {
+  border-color: var(--et-border) !important;
+}
+
+/* Elevated inner panels (e.g. code blocks in settings) */
+[data-color-theme="emerald"] .bg-navy-900 {
+  background-color: var(--et-bg-card-el) !important;
+  border-color: var(--et-border) !important;
+}
+
+[data-color-theme="emerald"] .bg-navy-900\/60,
+[data-color-theme="emerald"] .bg-navy-50\/50 {
+  background-color: var(--et-stat-bg) !important;
+  border-color: var(--et-stat-border) !important;
+}
+
+/* --- Text colors --- */
+[data-color-theme="emerald"] .text-navy-800,
+[data-color-theme="emerald"] .text-navy-855,
+[data-color-theme="emerald"] .dark\\:text-white {
+  color: var(--et-text-primary) !important;
+}
+[data-color-theme="emerald"] .text-navy-450,
+[data-color-theme="emerald"] .text-navy-400,
+[data-color-theme="emerald"] .text-navy-500,
+[data-color-theme="emerald"] .dark\\:text-navy-550,
+[data-color-theme="emerald"] .dark\\:text-navy-500,
+[data-color-theme="emerald"] .dark\\:text-navy-400 {
+  color: var(--et-text-secondary) !important;
+}
+[data-color-theme="emerald"] .dark\\:text-navy-150,
+[data-color-theme="emerald"] .dark\\:text-navy-100,
+[data-color-theme="emerald"] .dark\\:text-navy-200 {
+  color: var(--et-text-primary) !important;
+}
+
+/* Aqua accent → Emerald primary */
+[data-color-theme="emerald"] .text-aqua-400,
+[data-color-theme="emerald"] .text-aqua-600,
+[data-color-theme="emerald"] .text-aqua-300 {
+  color: var(--et-primary) !important;
+}
+
+/* --- Inputs, selects, textareas --- */
+[data-color-theme="emerald"] input,
+[data-color-theme="emerald"] select,
+[data-color-theme="emerald"] textarea {
+  background-color: var(--et-input-bg) !important;
+  border-color: var(--et-input-border) !important;
+  color: var(--et-text-primary) !important;
+}
+[data-color-theme="emerald"] input:focus,
+[data-color-theme="emerald"] select:focus,
+[data-color-theme="emerald"] textarea:focus {
+  --tw-ring-color: var(--et-primary) !important;
+  border-color: var(--et-primary) !important;
+}
+[data-color-theme="emerald"] select option {
+  background-color: var(--et-bg-card) !important;
+  color: var(--et-text-primary) !important;
+}
+
+/* --- Primary action buttons (aqua) → Emerald --- */
+[data-color-theme="emerald"] .bg-aqua-500,
+[data-color-theme="emerald"] .bg-aqua-600 {
+  background-color: var(--et-primary) !important;
+}
+[data-color-theme="emerald"] .hover\\:bg-aqua-600:hover {
+  background-color: var(--et-primary-hover) !important;
+}
+
+/* Nav active state in sidebar (already handled above, backup) */
+[data-color-theme="emerald"] .bg-aqua-600.text-white {
+  background-color: var(--et-nav-active-bg) !important;
+}
+
+/* --- Demo control bar --- */
+[data-color-theme="emerald"] .fixed.bottom-0 {
+  background-color: var(--et-bg-card) !important;
+  border-top-color: var(--et-border) !important;
+}
+
+/* --- Scrollbars (emerald-tinted) --- */
+[data-color-theme="emerald"] ::-webkit-scrollbar-thumb {
+  background-color: var(--et-scroll-thumb) !important;
+}
+[data-color-theme="emerald"] ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--et-primary) !important;
+  opacity: 0.6;
+}
+
+/* --- Tables --- */
+[data-color-theme="emerald"] table thead {
+  background-color: var(--et-bg-card-el) !important;
+  border-bottom-color: var(--et-border) !important;
+}
+[data-color-theme="emerald"] table tbody tr {
+  border-bottom-color: var(--et-border) !important;
+}
+[data-color-theme="emerald"] table tbody tr:hover {
+  background-color: var(--et-nav-hover-bg) !important;
+}
