@@ -208,7 +208,7 @@ const Dashboard = () => {
       <div
         key={key}
         onClick={() => navigate(`/parameter/${config.field}`)}
-        className="glass-card glass-card-hover p-5 cursor-pointer relative overflow-hidden group select-none flex flex-col justify-between h-48"
+        className="glass-card glass-card-hover p-5 cursor-pointer relative overflow-hidden group select-none flex flex-col justify-between min-h-[12rem] h-auto gap-4"
       >
         {/* Header */}
         <div className="flex items-start justify-between">
@@ -362,7 +362,7 @@ const Dashboard = () => {
       </div>
 
       {/* SECTION 2: 5 Parameter Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {Object.keys(PARAMETER_METRIC_CONFIG).map(renderMetricCard)}
       </div>
 

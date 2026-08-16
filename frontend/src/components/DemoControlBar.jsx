@@ -57,8 +57,8 @@ const DemoControlBar = () => {
 
   return (
     <div
-      className={`fixed bottom-0 right-0 z-45 bg-navy-900/95 dark:bg-navy-950/98 border-t border-navy-800 text-white transition-all duration-300 w-full md:w-[720px] shadow-2xl rounded-t-3xl ${
-        isMinimized ? 'h-11 overflow-hidden' : 'h-auto py-5 px-6'
+      className={`fixed bottom-0 right-0 z-40 bg-navy-900/95 dark:bg-navy-950/98 border-t border-navy-800 text-white transition-all duration-300 w-full md:w-[720px] shadow-2xl rounded-t-3xl ${
+        isMinimized ? 'h-11 overflow-hidden' : 'max-h-[90vh] overflow-y-auto py-5 px-6'
       } no-print`}
       style={{ right: '0px' }}
     >

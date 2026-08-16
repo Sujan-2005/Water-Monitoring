@@ -57,7 +57,7 @@ const TopHeader = () => {
   };
 
   return (
-    <header className="h-16 border-b border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md px-6 flex items-center justify-between sticky top-0 z-20">
+    <header className="min-h-[4rem] h-auto border-b border-navy-100 dark:border-navy-800 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md px-6 py-3 sm:py-0 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-20">
       
       {/* Title & Info */}
       <div className="flex items-center gap-4">

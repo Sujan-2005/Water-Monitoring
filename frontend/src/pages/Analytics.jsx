@@ -67,7 +67,7 @@ const Analytics = () => {
       </div>
 
       {/* Aggregate Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {parameters.map(p => (
           <div key={p} className="glass-card p-5 space-y-3 font-mono">
             <h4 className="text-[10px] font-bold text-navy-450 uppercase tracking-widest border-b border-navy-100 dark:border-navy-850 pb-1.5">{getParamLabel(p)} Stats</h4>

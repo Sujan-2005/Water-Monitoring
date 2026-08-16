@@ -67,68 +67,71 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
         </button>
       </div>
 
-      {/* Nav Links */}
-      <nav className="flex-1 py-4 overflow-y-auto px-3 space-y-1">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.name}
-            to={item.path}
-            className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group text-sm ${
-                isActive
-                  ? 'bg-aqua-600 text-white font-medium shadow-md shadow-aqua-600/10'
-                  : 'hover:bg-navy-800/50 hover:text-white text-navy-400'
-              }`
-            }
-          >
-            <item.icon className="w-5 h-5 flex-shrink-0" />
-            {!isCollapsed && <span className="truncate">{item.name}</span>}
-          </NavLink>
-        ))}
-      </nav>
+      {/* Scrollable Content Container */}
+      <div className="flex-1 overflow-y-auto min-h-0 space-y-4 py-4 select-none">
+        {/* Nav Links */}
+        <nav className="px-3 space-y-1">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group text-sm ${
+                  isActive
+                    ? 'bg-aqua-600 text-white font-medium shadow-md shadow-aqua-600/10'
+                    : 'hover:bg-navy-800/50 hover:text-white text-navy-400'
+                }`
+              }
+            >
+              <item.icon className="w-5 h-5 flex-shrink-0" />
+              {!isCollapsed && <span className="truncate">{item.name}</span>}
+            </NavLink>
+          ))}
+        </nav>
 
-      {/* System Status Indicators (Only show when expanded) */}
-      {!isCollapsed && (
-        <div className="mx-4 my-2 p-3.5 rounded-xl bg-navy-950/80 border border-navy-800/50 text-xs">
-          <div className="flex justify-between items-center mb-2 pb-1.5 border-b border-navy-800/40">
-            <span className="font-semibold text-navy-300 uppercase tracking-wider text-[10px]">System Diagnostics</span>
-            <span className="flex h-2 w-2 relative">
-              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${getSystemStatusColor(systemStatus.backend)}`}></span>
-              <span className={`relative inline-flex rounded-full h-2 w-2 ${getSystemStatusColor(systemStatus.backend)}`}></span>
-            </span>
+        {/* System Status Indicators (Only show when expanded) */}
+        {!isCollapsed && (
+          <div className="mx-4 p-3.5 rounded-xl bg-navy-950/80 border border-navy-800/50 text-xs">
+            <div className="flex justify-between items-center mb-2 pb-1.5 border-b border-navy-800/40">
+              <span className="font-semibold text-navy-300 uppercase tracking-wider text-[10px]">System Diagnostics</span>
+              <span className="flex h-2 w-2 relative">
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${getSystemStatusColor(systemStatus.backend)}`}></span>
+                <span className={`relative inline-flex rounded-full h-2 w-2 ${getSystemStatusColor(systemStatus.backend)}`}></span>
+              </span>
+            </div>
+            <div className="space-y-1.5 text-navy-400">
+              <div className="flex justify-between items-center">
+                <span>Backend API</span>
+                <span className="font-mono flex items-center gap-1.5">
+                  <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.backend)}`}></span>
+                  {systemStatus.backend}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span>Database</span>
+                <span className="font-mono flex items-center gap-1.5">
+                  <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.database)}`}></span>
+                  {systemStatus.database}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span>Telemetry</span>
+                <span className="font-mono flex items-center gap-1.5">
+                  <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.telemetry)}`}></span>
+                  {systemStatus.telemetry}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span>Simulator</span>
+                <span className="font-mono flex items-center gap-1.5">
+                  <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.simulator)}`}></span>
+                  {simulatorStatus.status.toUpperCase()}
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="space-y-1.5 text-navy-400">
-            <div className="flex justify-between items-center">
-              <span>Backend API</span>
-              <span className="font-mono flex items-center gap-1.5">
-                <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.backend)}`}></span>
-                {systemStatus.backend}
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Database</span>
-              <span className="font-mono flex items-center gap-1.5">
-                <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.database)}`}></span>
-                {systemStatus.database}
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Telemetry</span>
-              <span className="font-mono flex items-center gap-1.5">
-                <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.telemetry)}`}></span>
-                {systemStatus.telemetry}
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span>Simulator</span>
-              <span className="font-mono flex items-center gap-1.5">
-                <span className={`h-1.5 w-1.5 rounded-full ${getSystemStatusColor(systemStatus.simulator)}`}></span>
-                {simulatorStatus.status.toUpperCase()}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* User Profile Footer */}
       <div className="p-4 border-t border-navy-800/60 mt-auto flex flex-col gap-2">

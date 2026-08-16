@@ -21,6 +21,17 @@ import ParameterDetail from './pages/ParameterDetail';
 function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setIsSidebarCollapsed(true);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Run initial check
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <AppProvider>
       <BrowserRouter>
