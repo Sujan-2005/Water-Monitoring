@@ -476,13 +476,18 @@ const SimulationEngine = {
     if (!dev) return null;
     
     return dev.sensors.map(s => {
-      const paramCode = s.name === 'pH' ? 'ph' : s.name === 'Temperature' ? 'temp' : s.name === 'Turbidity' ? 'turb' : s.name === 'TDS' ? 'tds' : 'do';
+      const nameLower = s.name.toLowerCase();
+      const paramCode = nameLower === 'ph' ? 'ph' : nameLower === 'temperature' ? 'temp' : nameLower === 'turbidity' ? 'turb' : nameLower === 'tds' ? 'tds' : 'do';
+      
+      const errorCount = (sensorErrorCounts[deviceId] && sensorErrorCounts[deviceId][paramCode]) || 0;
+      const totalCount = (sensorTotalCounts[deviceId] && sensorTotalCounts[deviceId][paramCode]) || 100;
+      
       return {
         name: s.name,
         status: s.status,
         quality: s.quality,
-        errorCount: sensorErrorCounts[deviceId][paramCode],
-        totalCount: sensorTotalCounts[deviceId][paramCode],
+        errorCount,
+        totalCount,
         lastUpdate: dev.lastSeen
       };
     });

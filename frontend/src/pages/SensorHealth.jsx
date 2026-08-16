@@ -8,14 +8,25 @@ const SensorHealth = () => {
   const [sensorsHealth, setSensorsHealth] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const formatTime = (timeStr) => {
+    if (!timeStr) return 'N/A';
+    const d = new Date(timeStr);
+    return isNaN(d.getTime()) ? 'N/A' : d.toLocaleTimeString();
+  };
+
   const fetchSensorHealth = async () => {
     setLoading(true);
     try {
       const devId = selectedDevice === 'ALL' ? 'WQM-001' : selectedDevice;
       const res = await axios.get(`/api/sensor/health/${devId}`);
-      setSensorsHealth(res.data);
+      if (res.data && Array.isArray(res.data)) {
+        setSensorsHealth(res.data);
+      } else {
+        setSensorsHealth([]);
+      }
     } catch (e) {
       console.error(e);
+      setSensorsHealth([]);
     } finally {
       setLoading(false);
     }
@@ -99,7 +110,7 @@ const SensorHealth = () => {
             <p className="text-xs text-navy-450 py-8 text-center animate-pulse">Running loop-back diagnostic checks...</p>
           ) : (
             <div className="space-y-4">
-              {sensorsHealth.map(s => {
+              {Array.isArray(sensorsHealth) && sensorsHealth.map(s => {
                 const isError = s.status === 'ERROR';
                 return (
                   <div
@@ -111,8 +122,8 @@ const SensorHealth = () => {
                     }`}
                   >
                     <div className="space-y-1">
-                      <h4 className="font-bold text-xs text-navy-850 dark:text-white uppercase tracking-wide">{s.name} Electrode</h4>
-                      <p className="text-[10px] text-navy-400 font-mono">Last update: {new Date(s.lastUpdate).toLocaleTimeString()}</p>
+                      <h4 className="font-bold text-xs text-navy-855 dark:text-white uppercase tracking-wide">{s.name} Electrode</h4>
+                      <p className="text-[10px] text-navy-450 dark:text-navy-500 font-mono">Last update: {formatTime(s.lastUpdate)}</p>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
@@ -161,7 +172,7 @@ const SensorHealth = () => {
               <div className="p-3.5 rounded-2xl bg-navy-50/50 dark:bg-navy-950/20 border border-navy-100/30">
                 <span className="font-bold text-navy-800 dark:text-white text-[11px] uppercase tracking-wide block">TDS Electrical Conductivity</span>
                 <p className="text-navy-500 dark:text-navy-450 text-[10px] mt-0.5 leading-relaxed">
-                  TDS electrodes measure electrical conductivity (EC). Compensate for temperature drift ($2\%\text{ per }^\circ\text{C}$) to keep readings reliable.
+                  TDS electrodes measure electrical conductivity (EC). Compensate for temperature drift (2% per °C) to keep readings reliable.
                 </p>
               </div>
             </div>
