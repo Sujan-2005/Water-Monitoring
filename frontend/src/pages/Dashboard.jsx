@@ -558,7 +558,7 @@ const Dashboard = () => {
       </div>
 
       {/* SECTION 4: Active Alerts Panel (Dashboard bottom list) */}
-      <div className="glass-card p-6">
+      <div className="bg-white dark:bg-navy-900 border border-navy-100 dark:border-navy-800 rounded-2xl shadow-sm p-6">
         <div className="flex justify-between items-center mb-4 pb-2 border-b border-navy-100 dark:border-navy-850">
           <h3 className="font-semibold text-xs text-navy-850 dark:text-white uppercase tracking-wider">
             Critical Station Alerts Log

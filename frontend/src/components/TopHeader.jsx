@@ -149,7 +149,7 @@ const TopHeader = () => {
 
           {/* Notifications Dropdown */}
           {showNotifications && (
-            <div className="absolute right-0 mt-3 w-80 max-h-[420px] overflow-y-auto glass-card border border-navy-100 dark:border-navy-800 shadow-xl rounded-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <div className="absolute right-0 mt-3 w-80 max-h-[420px] overflow-y-auto bg-white dark:bg-navy-900 border border-navy-100 dark:border-navy-800 shadow-xl rounded-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
               <div className="flex justify-between items-center mb-3 pb-2 border-b border-navy-100 dark:border-navy-850">
                 <h3 className="font-semibold text-xs text-navy-800 dark:text-white uppercase tracking-wider">Active Alerts</h3>
                 <span className="text-[10px] text-navy-400 font-mono">({activeAlerts.length} alerts)</span>
@@ -189,7 +189,8 @@ const TopHeader = () => {
                         {alert.status === 'active' && (
                           <button
                             onClick={() => acknowledgeAlert(alert.id)}
-                            className="px-2 py-0.5 rounded bg-white hover:bg-navy-100 dark:bg-navy-850 dark:hover:bg-navy-800 border border-navy-200 dark:border-navy-700 text-[9px] font-bold transition-all text-navy-700 dark:text-navy-200 shadow-sm"
+                            // className="px-2 py-0.5 rounded bg-white hover:bg-navy-100 dark:bg-navy-850 dark:hover:bg-navy-800 border border-navy-200 dark:border-navy-700 text-[9px] font-bold transition-all text-navy-700 dark:text-navy-200 shadow-sm"
+                            className="px-2 py-0.5 rounded bg-[#0f172a] hover:bg-[#1e293b] border border-[#334155] text-[9px] font-bold transition-all text-white shadow-sm"
                           >
                             Acknowledge
                           </button>
